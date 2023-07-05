@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Linked List Phonebook</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>Linked List Phonebook</h1>
+  </header>
+
+  <div class="container">
+    <div class="phonebook">
+      <h2>Add Contact</h2>
+      <form id="addContactForm">
+        <input type="text" id="nameInput" placeholder="Name" required>
+        <input type="text" id="phoneInput" placeholder="Phone Number" required>
+        <button type="submit">Add</button>
+      </form>
+    </div>
+
+    <div class="phonebook">
+      <h2>Search Contact</h2>
+      <input type="text" id="searchInput" placeholder="Search Name">
+      <button onclick="searchContact()">Search</button>
+    </div>
+
+    <div class="phonebook">
+      <h2>Delete Contact</h2>
+      <input type="text" id="deleteInput" placeholder="Delete Name">
+      <button onclick="deleteContact()">Delete</button>
+      
+    </div>
+
+    <div class="phonebook">
+      <h2>Contact List</h2>
+      <ul id="contactList"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

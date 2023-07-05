@@ -1,0 +1,103 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  background-position: center;
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+	min-height:100vh;
+	
+}
+
+header {
+  border-block-color:white;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  position:relative;
+}
+	
+	
+.addContactForm{
+	position:absolute;
+	left:50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.89);
+	border-radius:3px;
+	padding:70px 100px;
+}
+
+.phonebook {
+background: rgb(242,222,236);
+background: radial-gradient(circle, rgba(242,222,236,1) 0%, rgba(234,242,241,0.8295693277310925) 100%);
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 20px;
+  width: 300px;
+}
+
+.phonebook h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.phonebook form {
+  display: flex;
+  flex-direction: column;
+}
+
+.phonebook input {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.phonebook button {
+  background-color: #333;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px 16px;
+}
+
+.phonebook button:hover {
+  background-color: #555;
+}
+
+#contactList {
+  list-style-type: none;
+  padding: 0;
+}
+
+#contactList li {
+  margin-bottom: 10px;
+  padding: 5px;
+background: rgb(240,240,240);
+background: radial-gradient(circle, rgba(240,240,240,1) 0%, rgba(255,255,255,0.8295693277310925) 100%);
+  color: #171616;
+  border-radius: 3px;
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .phonebook {
+    width: 100%;
+  }
+}
+
+
