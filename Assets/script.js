@@ -38,75 +38,78 @@ class Phonebook {
     return null;
   }
 
-  deleteContact(name) {
-    if (this.head === null) {
-      return;
-    }
+  deleteContactAt(index) {
+    if (this.head === null) return;
 
-    if (this.head.name.toLowerCase() === name.toLowerCase()) {
+    if (index === 0) {
       this.head = this.head.next;
       this.displayContacts();
       return;
     }
 
     let current = this.head;
-    while (current.next !== null) {
-      if (current.next.name.toLowerCase() === name.toLowerCase()) {
-        current.next = current.next.next;
-        this.displayContacts();
-        return;
-      }
+    let prev = null;
+    let i = 0;
+
+    while (current !== null && i < index) {
+      prev = current;
       current = current.next;
+      i++;
+    }
+
+    if (current !== null) {
+      prev.next = current.next;
+      this.displayContacts();
     }
   }
 
   displayContacts() {
-    const contactList = document.getElementById('contactList');
-    contactList.innerHTML = '';
+    const contactList = document.getElementById("contactList");
+    contactList.innerHTML = "";
 
     let current = this.head;
+    let index = 0;
+
     while (current !== null) {
-      const listItem = document.createElement('li');
-      listItem.textContent = `${current.name} - ${current.phone}`;
+      const listItem = document.createElement("li");
+      listItem.innerHTML = `
+        <span>${current.name}: ${current.phone}</span>
+        <button class="delete-btn" onclick="deleteContact(${index})">Delete</button>
+      `;
       contactList.appendChild(listItem);
+
       current = current.next;
+      index++;
     }
   }
 }
 
 const phonebook = new Phonebook();
 
-document.getElementById('addContactForm').addEventListener('submit', (e) => {
+document.getElementById("addContactForm").addEventListener("submit", (e) => {
   e.preventDefault();
-  const name = document.getElementById('nameInput').value;
-  const phone = document.getElementById('phoneInput').value;
+  const name = document.getElementById("nameInput").value.trim();
+  const phone = document.getElementById("phoneInput").value.trim();
 
   if (name && phone) {
     phonebook.addContact(name, phone);
-    document.getElementById('nameInput').value = '';
-    document.getElementById('phoneInput').value = '';
+    document.getElementById("addContactForm").reset();
   }
 });
 
 function searchContact() {
-  const name = document.getElementById('searchInput').value;
+  const name = document.getElementById("searchInput").value.trim();
 
   if (name) {
     const contact = phonebook.searchContact(name);
     if (contact) {
-      alert(`Contact found: ${contact.name} - ${contact.phone}`);
+      alert(`Contact found:\n${contact.name} - ${contact.phone}`);
     } else {
-      alert('Contact not found.');
+      alert("Contact not found.");
     }
-    document.getElementById('searchInput').value = '';
   }
 }
 
-function deleteContact() {
-  const name = document.getElementById('deleteInput').value;
-
-  if (name) {
-    phonebook.deleteContact(name);
-    document.getElementById('deleteInput').value = '';
-  }
+function deleteContact(index) {
+  phonebook.deleteContactAt(index);
 }

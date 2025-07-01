@@ -1,46 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Linked List Phonebook</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="./Assets/style.css" />
 </head>
 
 <body>
-  <header>
-    <h1>Linked List Phonebook</h1>
-  </header>
+  <nav class="navbar">
+    <h1 class="logo">Phonebook</h1>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search Contact..." />
+      <button onclick="searchContact()">Search</button>
+    </div>
+  </nav>
+
 
   <div class="container">
-    <div class="phonebook">
+    <div class="phonebook add-contact">
       <h2>Add Contact</h2>
       <form id="addContactForm">
-        <input type="text" id="nameInput" placeholder="Name" required>
-        <input type="text" id="phoneInput" placeholder="Phone Number" required>
+        <input type="text" id="nameInput" placeholder="Name" required />
+        <input type="text" id="phoneInput" placeholder="Phone Number" required />
         <button type="submit">Add</button>
       </form>
     </div>
 
-    <div class="phonebook">
-      <h2>Search Contact</h2>
-      <input type="text" id="searchInput" placeholder="Search Name">
-      <button onclick="searchContact()">Search</button>
-    </div>
-
-    <div class="phonebook">
-      <h2>Delete Contact</h2>
-      <input type="text" id="deleteInput" placeholder="Delete Name">
-      <button onclick="deleteContact()">Delete</button>
-      
-    </div>
-
-    <div class="phonebook">
+    <div class="phonebook contact-list-section">
       <h2>Contact List</h2>
       <ul id="contactList"></ul>
     </div>
   </div>
 
-  <script src="script.js"></script>
+
+  <script src="./Assets/script.js"></script>
 </body>
 
 </html>
